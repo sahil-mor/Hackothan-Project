@@ -1,0 +1,19 @@
+<%- include('./partials/header') %>
+<div class="container">
+    <h1 style="text-align: center" >ADD EVENT POSTER</h1>
+    <div style="width: 30%;margin:30px auto">
+        <% console.log(eventId) %>
+        <form action="/addPoster/To/<%=eventId%>" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                    <input class="form-control" type="file"  accept="image/x-png,image/gif,image/jpeg" name="photo">
+            </div>
+            
+            
+            <div class="form-group">
+                    <button class="btn btn-primary btn-lg btn-default btn-block" type="submit">SUBMIT</button>
+            </div>
+            
+        </form>  
+    </div>  
+        
+</div>

@@ -1,0 +1,230 @@
+<%- include('./partials/header') %>
+<img src="./hero.jpg" style="width: 100%;position: absolute;" alt="">
+<div class="hero-area bg-1 text-center overly" id="ashray">
+    <!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Header Contetnt -->
+				<div class="content-block">
+					<h1>Register And Participate </h1>
+					<p>In the hackathons near and far from you.</p>
+					<div class="short-popular-category-list text-center">
+						<strong><h2>Popular Category</h2></strong>
+						<ul class="list-inline">
+							<li class="list-inline-item">
+								<strong><a href="" style="color : white"> IOT</a></li></strong>
+							<li class="list-inline-item">
+								<a href=""></i> WEB</a>
+							</li>
+							<li class="list-inline-item">
+								<a href=""></i> APP</a>
+							</li>
+							<li class="list-inline-item">
+								<a href=""></i>ML</a>
+							</li>
+							<li class="list-inline-item">
+								<a href=""></i> ARDUINO</a>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+				<!-- Advance Search -->
+				<div class="advance-search" style="height: 14em">
+					<form action="#">
+						<div class="row">
+							<!-- Store Search -->
+							<div class="col-lg-6 col-md-12">
+								<div class="block d-flex">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-12">
+								<div class="block d-flex">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
+									<!-- Search Button -->
+									<button class="btn btn-main">SEARCH</button>
+								</div>
+							</div>
+						</div>
+					</form>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
+</div>
+
+<div class="popular-deals div bg-gray" style="margin-top: -4em">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="div-title" style="margin-left: 3em">
+					<h2>Trending Hackathons</h2>
+					<p>Discover the new and trending Hackathons near you.</p>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 6em">
+			<!-- offer 01 -->
+			<% if(allHecks != undefined){ %>
+				<% var i = 0 ; %>
+				<% allHecks = allHecks.reverse() %>
+				<% if(allHecks.length != 0){%> 
+						<% allHecks.forEach((heck)=>{ %>
+						<% if(i < 3){ %>
+								<div class="col-sm-12 col-lg-4">
+								<!-- product card -->
+									<div class="product-item bg-light">
+										<div class="card">
+											<div class="thumb-content">
+												<div class="price" style="font-size: 1.3em">$<%=heck.entryFees%></div>
+												<a href="">
+													<% if(heck.heckPoster != undefined){%>
+														<% var posterUrl = heck.heckPoster %>
+														<% posterUrl = posterUrl.slice(6,posterUrl.length) %>	
+													<%}else{ %> 
+														<% var posterUrl = null %>	
+													<%} %>
+													<img class="card-img-top img-fluid" src="./<%=posterUrl%>" alt="Poster">
+												</a>
+											</div>
+											<div class="card-body">
+												<h4 class="card-title"><a href=""><%=heck.eventName.toUpperCase() %></a></h4>
+												<ul class="list-inline product-meta">
+													<li class="list-inline-item">
+														<a href="" style="font-size: 1.2em"><i class="fa fa-calendar"></i>Scheduled On : <%= heck.onDate.toString().slice(0,15)  %></a>
+													</li>
+													<li class="list-inline-item">
+														<a href="" style="font-size: 1.2em"><i class="fa fa-calendar"></i>Posted On: <%= heck.createdOn.toString().slice(0,15)  %></a>
+													</li>
+													<li class="list-inline-item">
+														<a href="" style="font-size: 1.2em"><i class="fa fa-map-marker" style="font-size: 1.5em"> </i> Venue : <%= heck.place %></a>
+													</li>
+												</ul>
+												<p class="card-text">Posted By - <%= heck.ownerName %> </p>
+												<div class="product-ratings">
+													<a href="showHeck/<%=heck.id%>" class="btn btn-outline-success" style="position: absolute;right :8px;bottom : 20px;height: 3em;width: 10em;">Know More</a>
+												</div>
+											</div>
+										</div>
+									</div>	
+							</div>	
+							<% } %>
+							<% i = i + 1 %>		
+						<% }) %>
+					
+							
+				<% }%>	
+			<a class="btn btn-outline-danger" style="height : 3em;width : 10em;position : relative;top : 35em;left : 30em" href="allHecks"> See All </a>
+			<%} %>
+		</div>
+	</div>
+</div>
+
+
+
+<!--==========================================
+=            All Category div            =
+===========================================-->
+
+<div class=" div">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<!-- div title -->
+				<div class="div-title">
+					<h2>All Categories</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
+				</div>
+				<div class="row">
+					<!-- Category list -->
+					<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-laptop icon-bg-1"></i> 
+								<h4>Web Development</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a style="font-size : 1.5em">Hackathons <span style="font-size : 1em"> <%=category.webDevNumber%> </span></a></li>
+								<li><a class="btn btn-outline-warning" href="webDevHecks" style="font-size : 1.3em;color : black">See All</a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-apple icon-bg-2"></i> 
+								<h4>App Development</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a style="font-size : 1.5em">Hackathons <span style="font-size : 1em"> <%=category.appDevNumber%> </span></a></li>
+								<li><a class="btn btn-outline-success" href="appDevHecks"  style="font-size : 1.3em;color : black">See All</a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-home icon-bg-3"></i> 
+								<h4>Machine Learning</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a style="font-size : 1.5em">Hackathons <span style="font-size : 1em"> <%=category.mlNumber%> </span></a></li>
+								<li><a class="btn btn-outline-info" href="mlHecks"  style="font-size : 1.3em;color : black">See All</a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-shopping-basket icon-bg-4"></i> 
+								<h4>Arduino</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a style="font-size : 1.5em">Hackathons <span style="font-size : 1em"> <%=category.arduinoNumber%> </span></a></li>
+								<li><a class="btn btn-outline-secondary" href="arduinoHecks" style="font-size : 1.3em;color : black">See All</a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-briefcase icon-bg-5"></i> 
+								<h4>Internet Of Things</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a style="font-size : 1.5em">Hackathons <span style="font-size : 1em"> <%=category.iotNumber%> </span></a></li>
+								<li><a class="btn btn-outline-primary" href="iotHecks" style="font-size : 1.3em;color : black">See All</a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+					<!-- Category list -->
+					<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+						<div class="category-block">
+							<div class="header">
+								<i class="fa fa-car icon-bg-6"></i> 
+								<h4>Others</h4>
+							</div>
+							<ul class="category-list" >
+								<li><a style="font-size : 1.5em">Hackathons <span style="font-size : 1em"> <%=category.otherCategories%> </span></a></li>
+								<li><a class="btn btn-outline-danger" href="otherHecks" style="font-size : 1.3em;color : black">See All</a></li>
+							</ul>
+						</div>
+					</div> <!-- /Category List -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
+</div>
+
+<%- include('./partials/footer.ejs') %>

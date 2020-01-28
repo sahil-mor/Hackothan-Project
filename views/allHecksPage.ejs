@@ -1,0 +1,60 @@
+<%- include('./partials/header') %>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="./allHecks.css" >
+ 
+<body>
+    <!-- Header -->
+    <header class="pt2 pb1 align--center">
+        <div class="container">
+            <h1> <%= title %> </h1>
+        </div>
+    </header>
+    <main>
+        
+        <div class="container">
+                <section class="grid-row grid-row--center">
+                <% var i = 1; %>
+                <% hecks.forEach((heck)=>{ %>
+                 <% if(i % 2 == 0){ %>
+                        <% var c2 = "order-" + i %>
+                        <% i = i + 1 %>
+                        <%  var c1 = "order-" + i %>
+                    <% }else{ %> 
+                        <% var c1 = "order-" + i %>
+                        <% i = i + 1 %>
+                        <% var c2 = "order-" + i %>
+                    <% }  %>
+                    <div class="grid-column span-half pt3 pb3 mobile-m <%= c1 %>">
+                        <div class="relative">
+                        <% if(heck.heckPoster != undefined){%>
+                            <% var posterUrl = heck.heckPoster %>
+                            <% posterUrl = posterUrl.slice(6,posterUrl.length) %>	
+                        <%}else{ %> 
+                            <% var posterUrl = null %>	
+                        <%} %>
+                            <img style="margin-left : 2em" class="info-image relative z2" src="./<%=posterUrl%>" alt="Poster">
+                             <div class="pattern pattern--left-down absolute z1" style="height : 10em;margin-top : -1em;width : 15em;margin-left : -5em"></div>
+                        </div>
+                    </div>
+                    <div class="grid-column span-half pt3 pb3 mobile-m <%= c2 %> ">
+                        <h3><%=heck.eventName%></h3>
+                        <p> Venue : <%= heck.place %></p>
+                        <p><i class="fa fa-calendar"></i> Scheduled On : <%= heck.onDate.toString().slice(0,15)  %> </p>
+                        <p><i class="fa fa-calendar"></i> Posted On: <%= heck.createdOn.toString().slice(0,15)   %> </p>
+                        <p> Entry Fee : $<%= heck.entryFees   %> </p>
+                        <p> <ul class="list-inline">
+                            <% heck.categories.forEach((cat)=>{ %>
+                                <li class="list-inline-item">
+                                    <a href="" style="font-size : 1.3em;text-decoration : underline"> <%= cat %> </a>
+                                </li>
+                            <% }) %>
+						</ul>
+                        </p>
+                        <a class="btn btn-outline-warning" href="showHeck/<%=heck.id%>" target="_blank" style="color : grey;height : 2em;width : 100%;padding-top : 3px;padding-left : 25px">See Event</a>
+                    </div>
+                   
+                <% }) %>
+            </section>
+        </div>
+    </main>
+<%- include('./partials/footer.ejs') %>
