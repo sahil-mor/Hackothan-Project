@@ -68,10 +68,23 @@ app.get("/",(req,res)=>{
             res.send(err)
         }else{       
             Category.find({},(err,found)=>{
-                if(err){
-                    res.send(err)
+    if(err){
+        console.log(err)
+    }else{
+        if(found == undefined || found.length == 0){
+            Category.create({
+                webDevNumber : 0, appDevNumber : 0, iotNumber : 0, arduinoNumber : 0, mlNumber : 0, otherCategories : 0,
+                webHecks : [], appHecks : [], iotHecks : [], arduinoHecks : [], mlHecks : [], otherHecks : []
+                    },(err,created)=>{
+                        if(err){
+                            res.send(err)
+                        }else{
+                            res.render("home",{ allHecks : allHecks, category : created })
+                        }
+                    })
                 }else{
                     res.render("home",{ allHecks : allHecks, category : found[0] })
+                }
                 }
             }) 
         }

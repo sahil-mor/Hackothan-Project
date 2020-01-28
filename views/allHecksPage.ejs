@@ -13,18 +13,8 @@
         
         <div class="container">
                 <section class="grid-row grid-row--center">
-                <% var i = 1; %>
                 <% hecks.forEach((heck)=>{ %>
-                 <% if(i % 2 == 0){ %>
-                        <% var c2 = "order-" + i %>
-                        <% i = i + 1 %>
-                        <%  var c1 = "order-" + i %>
-                    <% }else{ %> 
-                        <% var c1 = "order-" + i %>
-                        <% i = i + 1 %>
-                        <% var c2 = "order-" + i %>
-                    <% }  %>
-                    <div class="grid-column span-half pt3 pb3 mobile-m <%= c1 %>">
+                    <div class="grid-column span-half pt3 pb3 mobile-m">
                         <div class="relative">
                         <% if(heck.heckPoster != undefined){%>
                             <% var posterUrl = heck.heckPoster %>
@@ -36,7 +26,7 @@
                              <div class="pattern pattern--left-down absolute z1" style="height : 10em;margin-top : -1em;width : 15em;margin-left : -5em"></div>
                         </div>
                     </div>
-                    <div class="grid-column span-half pt3 pb3 mobile-m <%= c2 %> ">
+                    <div class="grid-column span-half pt3 pb3 mobile-m ">
                         <h3><%=heck.eventName%></h3>
                         <p> Venue : <%= heck.place %></p>
                         <p><i class="fa fa-calendar"></i> Scheduled On : <%= heck.onDate.toString().slice(0,15)  %> </p>

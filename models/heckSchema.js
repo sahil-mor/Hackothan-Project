@@ -13,7 +13,7 @@ var heckSchema = mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : "User"
     },
-    cashPrizes : String,
+    cashPrize : String,
     minimumMembers : Number,
     maximumMembers : Number,
     entryFees : String,

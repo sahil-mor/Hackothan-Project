@@ -4,7 +4,8 @@ var Heck = mongoose.model("Heck",heckSchema)
 var userSchema = require("./userSchema")
 var User = mongoose.model("User",userSchema)
 var categorySchema = require("./categorySchema")
-var Category = mongoose.model("Category",categorySchema) 
+var Category = mongoose.model("Category",categorySchema)
+
 
 var web = false, app = false, iot = false, arduino = false,other = false , ml = false
 createEvent = (req,res)=>{
@@ -12,6 +13,7 @@ createEvent = (req,res)=>{
         if(err){
             res.send(err)
         }else{
+            console.log(req.body.cashPrize)
             var newHeck = {
                 username : req.user,
                 eventName : req.body.heckName,
@@ -22,7 +24,7 @@ createEvent = (req,res)=>{
                 startingTime : req.body.startingTime,
                 phone : req.body.areaCode + " " + req.body.phone, 
                 categories : [],
-                cashPrizes : req.body.cashPrizes,
+                cashPrize : req.body.cashPrize,
                 minimumMembers : req.body.minimumMembers,
                 maximumMembers : req.body.maximumMembers,
                 entryFees : req.body.entryFees,
