@@ -1,47 +1,43 @@
-<nav class="navbar navbar-expand-lg  navigation">
-        <a class="navbar-brand" href="index.html">
-            <h2 id ="as">HACKMe</h2>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto main-nav ">
-                <% if(user == undefined){ %>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#" style="color : white;font-size : 1.8em">HACKMe</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if(user == undefined){ %>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/" style="color : white">Home</a>
+                        <a class="nav-link" href="/" style="color : white; font-size : 1.5em">Home</a>
                     </li>    
                 <% }else{ %>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/loggedIn" style="color : white">Home</a>
+                        <a class="nav-link" href="/loggedIn" style="color : white; font-size : 1.5em">Home</a>
                     </li> 
                 <% } %>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/aboutus" style="color : white">About Us</a>
+                    <a class="nav-link" href="/aboutus" style="color : white; font-size : 1.5em">About Us</a>
                 </li><li class="nav-item active">
-                    <a class="nav-link" href="#contact" style="color : white">Contact Us</a>
-                </li><li class="nav-item active">
-                    <a class="nav-link" href="index.html" style="color : white"></a>
+                    <a class="nav-link" href="#contact" style="color : white; font-size : 1.5em">Contact Us</a>
                 </li>
-            </ul>      
-            <% if(user != undefined){ %>
-                    <ul class="navbar-nav ml-auto mt-10">
-                        <li class="nav-item">
-                            <a class="nav-link add-button btn" style="color : white;" href="/addEvent" >Add Event </a>
-                        </li>
-                    </ul>
-                <ul class="navbar-nav ml-auto mt-10">
-                    <li class="nav-item">
-                        <a class="nav-link btn-md btn-danger" style="color : white" href="logout">Logout </a>
-                    </li>
-                </ul>
-            <%}else{ %>
-                <ul class="navbar-nav ml-auto mt-10">
-                    <li class="nav-item">
-                        <a class="nav-link add-button" style="color : white;font-size: 1.6em" href="/login" >Signup </a>
-                    </li>
-                </ul>
-                </ul>
-            <% } %>
-        </div>
-    </nav>
+    </ul>
+     <% if(user != undefined){ %>
+        <ul class="navbar-nav ml-auto mt-10">
+            <li class="nav-item">
+                <a class="nav-link add-button btn" style="color : white;" href="/addEvent" >Add Event </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto mt-10">
+            <li class="nav-item">
+                <a class="nav-link btn-md btn-danger" style="color : white" href="logout">Logout </a>
+            </li>
+        </ul>
+    <%}else{ %>
+        <ul class="navbar-nav ml-auto mt-10">
+            <li class="nav-item">
+                <a class="nav-link add-button" style="color : white;font-size: 1.6em" href="/login" >Signup </a>
+            </li>
+        </ul>
+    <% } %>
+  </div>
+</nav>
